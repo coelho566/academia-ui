@@ -10,6 +10,9 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {TabMenuModule} from 'primeng/tabmenu';
 import { AppRoutingModule } from './app-routing.module';
+import { SecurityModule } from './security/security.module';
+import { AuthService } from './security/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -33,10 +36,12 @@ FullCalendarModule.registerPlugins([
     BrowserModule,
     FullCalendarModule,
     TabMenuModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SecurityModule,
+    HttpClientModule
     
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
