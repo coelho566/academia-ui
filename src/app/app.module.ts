@@ -1,3 +1,6 @@
+import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
+import { MessageService } from 'primeng/api';
+import { ErrorHandlerService } from './error-handler.service';
 import { AgendaModule } from './agenda/agenda.module';
 import { AlunoModule } from './aluno/aluno.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SecurityModule } from './security/security.module';
 import { AuthService } from './security/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -43,9 +47,13 @@ FullCalendarModule.registerPlugins([
     AlunoModule,
     HttpClientModule,
     AgendaModule
-
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    ErrorHandlerService,
+    MessageService,
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
