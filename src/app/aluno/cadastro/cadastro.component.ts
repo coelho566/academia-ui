@@ -1,11 +1,31 @@
+import { ErrorHandlerService } from './../../error-handler.service';
+import { AlunoService } from './../aluno.service';
+import { Aluno } from './../model';
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss']
 })
-export class CadastroComponent {
+export class CadastroComponent implements OnInit {
+
+  aluno = new Aluno;
+
+  constructor(
+    private alunoService: AlunoService,
+    private messageService: MessageService,
+    private router: Router,
+    private errorHandler: ErrorHandlerService
+    ){}
+
+  ngOnInit(){
+
+  }
 
   selectedState: any = null;
 
@@ -42,7 +62,19 @@ export class CadastroComponent {
     { value: 'SE', name: 'Sergipe' },
     { value: 'SP', name: 'São Paulo' },
     { value: 'TO', name: 'Tocantins'}
-  ]
+  ];
+
+
+  salvar(form: FormControl){
+    this.alunoService.adicionar(this.aluno)
+    .then(aluno => {
+      this.aluno = aluno;
+      this.messageService.add({ severity: 'success', detail: 'Pessoa adicionada com sucesso!' });
+      this.router.navigate(['/cadastro']);
+    }).catch(
+      erro => this.errorHandler.handle(erro)
+      );
+  }
 
 
 }

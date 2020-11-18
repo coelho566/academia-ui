@@ -1,3 +1,4 @@
+import { AlunoService } from './aluno.service';
 import { ButtonModule } from 'primeng/button';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -31,6 +32,11 @@ import { BrowserModule } from '@angular/platform-browser';
   ],
   entryComponents:[
     CadastroComponent
+  ],
+  providers:[
+    AlunoService
+
   ]
+  
 })
 export class AlunoModule { }

@@ -1,6 +1,6 @@
 <div class="container" style="margin-top: 20px;">
   <div class="p-grid">
-    <form>
+    <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
       <div class="p-col-12">
 
         <p-panel header="Cadastro de login">
