@@ -1,0 +1,160 @@
+<div class="container" style="margin-top: 20px;">
+  <div class="p-grid">
+    <form>
+      <div class="p-col-12">
+
+        <p-panel header="Cadastro de login">
+          <div class="p-grid" style="margin-top: 10px;">
+            <div class="p-col-4">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 250px;">
+                <label for="float-input">CPF</label>
+              </span>
+            </div>
+            <div class="p-col-8"> </div>
+          </div>
+
+          <div class="p-grid" style="margin-top: 15px;">
+            <div class="p-col-3">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 250px;">
+                <label for="float-input">E-mail</label>
+              </span>
+            </div>
+            <div class="p-col-3">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 250px;">
+                <label for="float-input">Confirmar</label>
+              </span>
+            </div>
+            <div class="p-col-3">
+              <span class="p-float-label">
+                <input id="float-input" type="password" pInputText style="width: 250px;">
+                <label for="float-input">Senha</label>
+              </span>
+            </div>
+            <div class="p-col-3">
+              <span class="p-float-label">
+                <input id="float-input" type="password" pInputText style="width: 250px;">
+                <label for="float-input">Confirmar</label>
+              </span>
+            </div>
+          </div>
+
+        </p-panel>
+
+      </div>
+
+      <div class="p-col-12">
+
+        <p-panel header="Dados de Contato">
+          <div class="p-grid" style="margin-top: 10px;">
+            <div class="p-col-6">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 100%;">
+                <label for="float-input">Nome</label>
+              </span>
+            </div>
+            <div class="p-col-6">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 100%;">
+                <label for="float-input">Sobrenome</label>
+              </span>
+            </div>
+          </div>
+
+          <div class="p-grid" style="margin-top: 15px;">
+            <div class="p-col-4">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 100%;">
+                <label for="float-input">Nascimento</label>
+              </span>
+            </div>
+            <div class="p-col-4">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 100%;">
+                <label for="float-input">RG</label>
+              </span>
+            </div>
+            <div class="p-col-4 ">
+              <span class="p-float-label">
+                <p-dropdown inputId="dropdown" [autoDisplayFirst]="false" [options]="sexo" optionLabel="name"
+                  [style]="{'width':'100%'}"></p-dropdown>
+                <label for="dropdown">Sexo</label>
+              </span>
+            </div>
+
+          </div>
+
+          <div class="p-grid" style="margin-top: 15px;">
+            <div class="p-col-2">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 100%;">
+                <label for="float-input">CEP</label>
+              </span>
+            </div>
+            <div class="p-col-8">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 100%;">
+                <label for="float-input">Endereço</label>
+              </span>
+            </div>
+            <div class="p-col-2">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 100%;">
+                <label for="float-input">N°</label>
+              </span>
+            </div>
+
+          </div>
+
+          <div class="p-grid" style="margin-top: 15px;">
+            <div class="p-col-4">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 100%;">
+                <label for="float-input">Bairro</label>
+              </span>
+            </div>
+            <div class="p-col-4">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 100%;">
+                <label for="float-input">Complemento</label>
+              </span>
+            </div>
+            <div class="p-col-4">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 100%;">
+                <label for="float-input">Cidade</label>
+              </span>
+            </div>
+          </div>
+
+          <div class="p-grid" style="margin-top: 15px;">
+            <div class="p-col-4">
+              <span class="p-float-label">
+                <p-dropdown inputId="dropdown" [autoDisplayFirst]="false" [options]="states" optionLabel="name"
+                  [style]="{'width':'100%'}"></p-dropdown>
+                <label for="dropdown">Estado</label>
+              </span>
+            </div>
+            <div class="p-col-4">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 100%;">
+                <label for="float-input">DDD-Telefone</label>
+              </span>
+            </div>
+            <div class="p-col-4">
+              <span class="p-float-label">
+                <input id="float-input" type="text" pInputText style="width: 100%;">
+                <label for="float-input">DDD-Celular</label>
+              </span>
+            </div>
+          </div>
+
+          <button pButton type="submit"  label = "Cadastrar" style="margin-top: 20px; width: 150px;"></button>
+
+        </p-panel>
+      </div>
+    </form>
+  </div>
+</div>

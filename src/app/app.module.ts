@@ -1,3 +1,5 @@
+import { AgendaModule } from './agenda/agenda.module';
+import { AlunoModule } from './aluno/aluno.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -30,7 +32,7 @@ FullCalendarModule.registerPlugins([
     AppComponent,
     CalendarComponent,
     NavbarComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -38,8 +40,10 @@ FullCalendarModule.registerPlugins([
     TabMenuModule,
     AppRoutingModule,
     SecurityModule,
-    HttpClientModule
-    
+    AlunoModule,
+    HttpClientModule,
+    AgendaModule
+
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

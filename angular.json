@@ -28,7 +28,8 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeicons/primeicons.css"
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeflex/primeflex.css"
             ],
             "scripts": [],
             "preserveSymlinks": true
@@ -95,5 +96,8 @@
       }
     }
   },
-  "defaultProject": "fullcalendar-angular-example"
+  "defaultProject": "fullcalendar-angular-example",
+  "cli": {
+    "analytics": "f6bda859-2623-4f46-9707-581b73a7087d"
+  }
 }
