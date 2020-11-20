@@ -6,8 +6,11 @@ import {ButtonModule} from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { SecurityRoutingModule } from './security-routing.module';
 import { ForLoginComponent } from './for-login/for-login.component';
-import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
+export function tokenGetter(): string {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [ForLoginComponent],
@@ -16,13 +19,19 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     SecurityRoutingModule,
     InputTextModule,
     ButtonModule,
-    FormsModule
+    FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+        allowedDomains: ['localhost:8080'],
+        disallowedRoutes: ['api/oauth/token']
+      }
+    }),
   ],
   exports:[
     ForLoginComponent
   ],
   providers:[
-    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService
   ]
 })

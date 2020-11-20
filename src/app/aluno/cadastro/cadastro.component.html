@@ -1,160 +1,68 @@
 <div class="container" style="margin-top: 20px;">
-  <div class="p-grid">
-    <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
-      <div class="p-col-12">
+  <p-toolbar>
+    <div class="p-toolbar-group-left">
+      
+      <p-button (click)="showBasicDialog()" icon="pi pi-plus" label="Novo Aluno"></p-button>
+    </div>
 
-        <p-panel header="Cadastro de login">
-          <div class="p-grid" style="margin-top: 10px;">
-            <div class="p-col-4">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 250px;">
-                <label for="float-input">CPF</label>
-              </span>
-            </div>
-            <div class="p-col-8"> </div>
-          </div>
+    <div class="p-toolbar-group-right">
+      <p-button icon="pi pi-search"></p-button>
+    </div>
+  </p-toolbar>
+  <p-dialog header="Cadastrar aluno" [(visible)]="displayBasic" [style]="{width: '400px'}" [baseZIndex]="10000">
+    <ng-template pTemplate="content" >
+      <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+        <span class="p-float-label" style="margin-top: 20px;">
+          <input id="float-input" type="text" pInputText style="width: 100%;" name="name" [(ngModel)]="aluno.name"> 
+          <label for="float-input">Nome</label>
+        </span>
 
-          <div class="p-grid" style="margin-top: 15px;">
-            <div class="p-col-3">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 250px;">
-                <label for="float-input">E-mail</label>
-              </span>
-            </div>
-            <div class="p-col-3">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 250px;">
-                <label for="float-input">Confirmar</label>
-              </span>
-            </div>
-            <div class="p-col-3">
-              <span class="p-float-label">
-                <input id="float-input" type="password" pInputText style="width: 250px;">
-                <label for="float-input">Senha</label>
-              </span>
-            </div>
-            <div class="p-col-3">
-              <span class="p-float-label">
-                <input id="float-input" type="password" pInputText style="width: 250px;">
-                <label for="float-input">Confirmar</label>
-              </span>
-            </div>
-          </div>
+        <span class="p-float-label" style="margin-top: 25px;">
+          <input id="float-input" type="email" pInputText style="width: 100%;" name="email" [(ngModel)]="aluno.email"> 
+          <label for="float-input">E-mail</label>
+        </span>
 
-        </p-panel>
+        <span class="p-float-label" style="margin-top: 25px;">
+          <p-inputMask [(ngModel)]="val" mask="99/99/9999" slotChar="mm-dd-yyyy" name="data" [style]="{'width':'100%'}" [(ngModel)]="aluno.dateOfBirth"></p-inputMask>
+          <label for="float-input">Data de nascimento</label>
+        </span>
 
-      </div>
+        <span class="p-float-label" style="margin-top: 25px;">
+          <p-dropdown [autoDisplayFirst]="false" name="data" [options]="permicao" [style]="{'width':'100%'}" optionLabel="name" [(ngModel)]="selectedRoleCode"  ></p-dropdown> 
+          <label for="float-input">Permissão</label>
+        </span>
 
-      <div class="p-col-12">
+        <span class="p-float-label" style="margin-top: 25px;margin-bottom: 15px;">
+          <input id="float-input" type="password" pInputText style="width: 100%;" name="password" [(ngModel)]="aluno.password"> 
+          <label for="float-input">Senha</label>
+        </span>
 
-        <p-panel header="Dados de Contato">
-          <div class="p-grid" style="margin-top: 10px;">
-            <div class="p-col-6">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 100%;">
-                <label for="float-input">Nome</label>
-              </span>
-            </div>
-            <div class="p-col-6">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 100%;">
-                <label for="float-input">Sobrenome</label>
-              </span>
-            </div>
-          </div>
+        <p-button icon="pi pi-check" (click)="salvar(f)" label="Salvar" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-times" (click)="displayBasic=false" label="Cancelar"></p-button>
+      </form>
+      </ng-template>
+  </p-dialog>
 
-          <div class="p-grid" style="margin-top: 15px;">
-            <div class="p-col-4">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 100%;">
-                <label for="float-input">Nascimento</label>
-              </span>
-            </div>
-            <div class="p-col-4">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 100%;">
-                <label for="float-input">RG</label>
-              </span>
-            </div>
-            <div class="p-col-4 ">
-              <span class="p-float-label">
-                <p-dropdown inputId="dropdown" [autoDisplayFirst]="false" [options]="sexo" optionLabel="name"
-                  [style]="{'width':'100%'}"></p-dropdown>
-                <label for="dropdown">Sexo</label>
-              </span>
-            </div>
 
-          </div>
-
-          <div class="p-grid" style="margin-top: 15px;">
-            <div class="p-col-2">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 100%;">
-                <label for="float-input">CEP</label>
-              </span>
-            </div>
-            <div class="p-col-8">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 100%;">
-                <label for="float-input">Endereço</label>
-              </span>
-            </div>
-            <div class="p-col-2">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 100%;">
-                <label for="float-input">N°</label>
-              </span>
-            </div>
-
-          </div>
-
-          <div class="p-grid" style="margin-top: 15px;">
-            <div class="p-col-4">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 100%;">
-                <label for="float-input">Bairro</label>
-              </span>
-            </div>
-            <div class="p-col-4">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 100%;">
-                <label for="float-input">Complemento</label>
-              </span>
-            </div>
-            <div class="p-col-4">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 100%;">
-                <label for="float-input">Cidade</label>
-              </span>
-            </div>
-          </div>
-
-          <div class="p-grid" style="margin-top: 15px;">
-            <div class="p-col-4">
-              <span class="p-float-label">
-                <p-dropdown inputId="dropdown" [autoDisplayFirst]="false" [options]="states" optionLabel="name"
-                  [style]="{'width':'100%'}"></p-dropdown>
-                <label for="dropdown">Estado</label>
-              </span>
-            </div>
-            <div class="p-col-4">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 100%;">
-                <label for="float-input">DDD-Telefone</label>
-              </span>
-            </div>
-            <div class="p-col-4">
-              <span class="p-float-label">
-                <input id="float-input" type="text" pInputText style="width: 100%;">
-                <label for="float-input">DDD-Celular</label>
-              </span>
-            </div>
-          </div>
-
-          <button pButton type="submit"  label = "Cadastrar" style="margin-top: 20px; width: 150px;"></button>
-
-        </p-panel>
-      </div>
-    </form>
-  </div>
+  <p-table [value]="alunos" [style]="{'margin-top':'20px'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Matricula</th>
+            <th>Name</th>
+            <th>E-mail</th>
+            <th class="col-acoes-header"></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-aluno>
+        <tr>
+            <td>{{ aluno.id }}</td>
+            <td>{{ aluno.name }}</td>
+            <td>{{ aluno.email }}</td>
+            <td class="col-acoes">
+              <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded" style="margin-left: 20px;" ></button>
+              <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger" style="margin-left: 20px;" (click)="excluir(aluno.id)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
 </div>

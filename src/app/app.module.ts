@@ -1,3 +1,4 @@
+import { CalendarService } from './calendar/calendar.service';
 import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from './error-handler.service';
@@ -18,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SecurityModule } from './security/security.module';
 import { AuthService } from './security/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import {CalendarModule} from 'primeng/calendar';
 
 
 
@@ -46,13 +48,15 @@ FullCalendarModule.registerPlugins([
     SecurityModule,
     AlunoModule,
     HttpClientModule,
-    AgendaModule
+    AgendaModule,
+    CalendarModule
   ],
   providers: [
     AuthService,
     ErrorHandlerService,
     MessageService,
-    JwtHelperService
+    JwtHelperService,
+    CalendarService
   ],
   bootstrap: [AppComponent]
 })

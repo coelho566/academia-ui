@@ -13,6 +13,12 @@ import {InputTextModule} from 'primeng/inputtext';
 
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import {ToolbarModule} from 'primeng/toolbar';
+import {DialogModule} from 'primeng/dialog';
+import {CalendarModule} from 'primeng/calendar';
+import {InputMaskModule} from 'primeng/inputmask';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import {TableModule} from 'primeng/table';
 
 
 
@@ -27,7 +33,13 @@ import { BrowserModule } from '@angular/platform-browser';
     FormsModule,
     InputTextModule,
     BrowserModule,
-    ButtonModule
+    ButtonModule,
+    ToolbarModule,
+    DialogModule,
+    CalendarModule,
+    InputMaskModule,
+    SelectButtonModule,
+    TableModule
 
   ],
   entryComponents:[

@@ -1,45 +1,53 @@
 <div class="container" style="margin-top: 20px;">
     <p-panel header="Agendar horario">
-        
-        <div class="p-grid" style="margin-top: 25px;">
-
-            <div class="p-col">
-                <span class="p-float-label">
-                    <p-calendar inputId="basic" [(ngModel)]="date"></p-calendar>
-                    <label for="float-input">Data</label>
-                </span>
+        <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+            <div class="p-grid" style="margin-top: 25px;">
+                
+                <div class="p-col">
+                    <span class="p-float-label">
+                        <p-calendar pattern="dd-MM-yyyy" inputId="basic" [(ngModel)]="events.date"  name = "data" ></p-calendar>
+                        <label for="float-input">Data</label>
+                    </span>
+                </div>
+                <div class="p-col">
+                    <span class="p-float-label">
+                        <p-calendar [(ngModel)]="events.entryTime" [timeOnly]="true" inputId="timeonly" name="entrada"></p-calendar>
+                        <label  for="float-input">Horário de entrada</label>
+                    </span>
+                </div>
+                <div class="p-col">
+                    <span class="p-float-label">
+                        <p-calendar [(ngModel)]="events.departureTime" [timeOnly]="true" inputId="timeonly" name="saida"></p-calendar>
+                        <label for="float-input">Horário de saida</label>
+                    </span>
+                </div>
+                <div class="p-col">
+                    <p-button icon="pi pi-check" label="Agendar" (click)="salvar(f)"></p-button>
+                </div>
+                
             </div>
-            <div class="p-col">
-                <span class="p-float-label">
-                    <p-inputMask mask="00:00"></p-inputMask>
-                    <label for="float-input">Horário de entrada</label>
-                </span>
-            </div>
-            <div class="p-col">
-                <span class="p-float-label">
-                    <p-inputMask mask="00:00"></p-inputMask>
-                    <label for="float-input">Horário de saida</label>
-                </span>
-            </div>
-            <div class="p-col">
-                <p-button icon="pi pi-check" label="Agendar"></p-button>
-            </div>
-
-        </div>
+        </form>
     </p-panel>
 
-    <p-table [style]="{'margin-top': '20px'}">
+    <p-table [value]="dados" [style]="{'margin-top': '20px'}">
         <ng-template pTemplate="header">
             <tr>
                 <th>Data</th>
                 <th>Horário entrada</th>
                 <th>Horário saida</th>
+                <th></th>
                 
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-product>
+        <ng-template pTemplate="body" let-dado>
             <tr>
-                <td></td>
+                <td>{{ dado.date}}</td>
+                <td>{{ dado.entryTime}}</td>
+                <td>{{ dado.departureTime }}</td>
+                <td >
+                    <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded" style="margin-left: 20px;" ></button>
+                    <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger" style="margin-left: 20px;" ></button>
+                  </td>
               
             </tr>
         </ng-template>

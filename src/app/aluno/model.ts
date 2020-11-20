@@ -6,3 +6,10 @@ export class Aluno {
     password : string
     roles : string
 }
+
+export class EventCalendar {
+
+    date: String
+    entryTime: string
+    departureTime: string
+}

@@ -1,3 +1,4 @@
+import { AgendaService } from './agenda.service';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +31,9 @@ import { InputMaskModule } from 'primeng/inputmask';
   ],
   exports: [
     AgendarComponent
+  ],
+  providers:[
+    AgendaService
   ]
 })
 export class AgendaModule { }
